@@ -1,5 +1,5 @@
-const iot = require("./controller-iot");
+const dht = require("./controller-dht");
 
 module.exports = {
-  iot,
+  dht,
 };

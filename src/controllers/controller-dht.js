@@ -13,7 +13,7 @@ module.exports = {
       if (err) throw err;
       connection.query(
         `
-        SELECT * FROM table_iot;
+        SELECT * FROM dht_data;
         `,
         function (error, results) {
           if (error) throw error;
@@ -34,7 +34,7 @@ module.exports = {
       if (err) throw err;
       connection.query(
         `
-                SELECT * FROM table_iot WHERE iot_id = ?;
+                SELECT * FROM dht_data WHERE id = ?;
                 `,
         [id],
         function (error, results) {
@@ -52,14 +52,13 @@ module.exports = {
   // POST data
   addDataIot(req, res) {
     let data = {
-      iot_waktu: req.body.waktu,
-      iot_ph: req.body.ph,
+      suhu_udara: req.body.suhu,
     };
     pool.getConnection(function (err, connection) {
       if (err) throw err;
       connection.query(
         `
-                INSERT INTO table_iot SET ?;
+                INSERT INTO dht_data SET ?;
                 `,
         [data],
         function (error, results) {

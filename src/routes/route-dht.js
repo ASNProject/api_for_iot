@@ -1,19 +1,19 @@
 const router = require("express").Router();
-const { iot } = require("../controllers");
+const { dht } = require("../controllers");
 
 // GET localhost:8080/iot => Get all data
-router.get("/iot", iot.getDataIot);
+router.get("/dht", dht.getDataIot);
 
 // GET localhost:8080/iot/2 => Get data by id
-router.get("/iot/:id", iot.getDataIotByID);
+router.get("/dht/:id", dht.getDataIotByID);
 
 // POST localhost:8080/iot/add => Add data
-router.post("/iot/add", iot.addDataIot);
+router.post("/dht/add", dht.addDataIot);
 
 // POST localhost:8080/iot/edit => Edit data
-router.post("/iot/edit", iot.editDataIot);
+router.post("/dht/edit", dht.editDataIot);
 
 // POST localhost:8080/iot/delete => Delete data
-router.post("/iot/delete/", iot.deleteDataIot);
+router.post("/dht/delete/", dht.deleteDataIot);
 
 module.exports = router;

@@ -1,7 +1,7 @@
 module.exports = {
-    multipleStatement : true,
-    host : 'localhost',
-    user : 'root',
-    password : '',
-    database : 'iotdatabase',
+  multipleStatement: true,
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "sensor_esp32",
 };
