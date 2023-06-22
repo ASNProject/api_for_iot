@@ -12,7 +12,7 @@ router.get("/dht/:id", dht.getDataDhtByID);
 router.post("/dht/add", dht.addDataDht);
 
 // POST localhost:8080/dht/delete => Delete data
-router.post("/dht/delete/", dht.deleteDataDht);
+router.post("/dht/delete", dht.deleteDataDht);
 
 /// TDS
 // GET localhost:8080/dht => Get all data
@@ -25,7 +25,7 @@ router.get("/tds/:id", tds.getDataTdsByID);
 router.post("/tds/add", tds.addDataTds);
 
 // POST localhost:8080/dht/delete => Delete data
-router.post("/tds/delete/", tds.deleteDataTds);
+router.post("/tds/delete", tds.deleteDataTds);
 
 /// PH
 // GET localhost:8080/dht => Get all data
@@ -48,7 +48,7 @@ router.get("/turbidity", turbidity.getDataTurbidity);
 router.get("/turbidity/:id", turbidity.getDataTurbidityByID);
 
 // POST localhost:8080/dht/add => Add data
-router.post("/turbidty/add", turbidity.addDataTurbidity);
+router.post("/turbidity/add", turbidity.addDataTurbidity);
 
 // POST localhost:8080/dht/delete => Delete data
 router.post("/turbidity/delete/", turbidity.deleteDataTurbidity);
