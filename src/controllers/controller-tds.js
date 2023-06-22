@@ -8,18 +8,18 @@ pool.on("error", (err) => {
 
 module.exports = {
   // Get all data
-  getDataDht(req, res) {
+  getDataTds(req, res) {
     pool.getConnection(function (err, connection) {
       if (err) throw err;
       connection.query(
         `
-        SELECT * FROM dht_data;
-        `,
+                SELECT * FROM tds_data;
+                `,
         function (error, results) {
           if (error) throw error;
           res.send({
             success: true,
-            message: "Berhasil ambil data!",
+            message: "Berhasil ambil data",
             data: results,
           });
         }
@@ -28,14 +28,14 @@ module.exports = {
     });
   },
   // Get by id
-  getDataDhtByID(req, res) {
+  getDataTdsByID(req, res) {
     let id = req.params.id;
     pool.getConnection(function (err, connection) {
       if (err) throw err;
       connection.query(
         `
-                SELECT * FROM dht_data WHERE id = ?;
-                `,
+                    SELECT * FROM tds_data WHERE id = ?;
+                    `,
         [id],
         function (error, results) {
           if (error) throw error;
@@ -50,15 +50,15 @@ module.exports = {
     });
   },
   // POST data
-  addDataDht(req, res) {
+  addDataTds(req, res) {
     let data = {
-      suhu_udara: req.body.suhu,
+      tds_data: req.body.tds,
     };
     pool.getConnection(function (err, connection) {
       if (err) throw err;
       connection.query(
         `
-                INSERT INTO dht_data SET ?;
+                INSERT INTO tds_data SET ?;
                 `,
         [data],
         function (error, results) {
@@ -73,13 +73,13 @@ module.exports = {
     });
   },
   // Delete data
-  deleteDataDht(req, res) {
+  deleteDataTds(req, res) {
     let id = req.body.id;
     pool.getConnection(function (err, connection) {
       if (err) throw err;
       connection.query(
         `
-                DELETE FROM dht_data WHERE id = ?;
+                DELETE FROM tds_data WHERE id = ?;
                 `,
         [id],
         function (error, result) {
